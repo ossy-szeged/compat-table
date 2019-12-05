@@ -3785,7 +3785,7 @@ exports.tests = [
         nashorn10: true,
         graalvm: true,
         jerryscript1_0: true,
-        jerryscript2_2_0: false,
+        jerryscript2_2_0: true,
       },
     },
     {
@@ -13081,6 +13081,7 @@ exports.tests = [
         duktape2_0: false,
         graalvm: true,
         jerryscript2_0: false,
+        jerryscript2_2_0: true,
       },
     },
     {
@@ -18317,6 +18318,7 @@ exports.tests = [
         duktape2_0: false,
         graalvm: true,
         jerryscript2_0: false,
+        jerryscript2_2_0: true,
       }
     },
     {
@@ -18344,6 +18346,7 @@ exports.tests = [
         duktape2_0: false,
         graalvm: true,
         jerryscript2_0: false,
+        jerryscript2_2_0: true,
       }
     },
     {
@@ -18371,6 +18374,7 @@ exports.tests = [
         duktape2_0: false,
         graalvm: true,
         jerryscript2_0: false,
+        jerryscript2_2_0: true,
       }
     },
     {
@@ -18397,6 +18401,7 @@ exports.tests = [
         duktape2_0: false,
         graalvm: true,
         jerryscript2_0: false,
+        jerryscript2_2_0: true,
       }
     },
     {
@@ -18424,6 +18429,7 @@ exports.tests = [
         duktape2_0: false,
         graalvm: true,
         jerryscript2_0: false,
+        jerryscript2_2_0: true,
       }
     },
     {
@@ -18452,6 +18458,7 @@ exports.tests = [
         duktape2_0: false,
         graalvm: true,
         jerryscript2_0: false,
+        jerryscript2_2_0: true,
       }
     },
     {
@@ -18480,6 +18487,7 @@ exports.tests = [
         duktape2_0: false,
         graalvm: true,
         jerryscript2_0: false,
+        jerryscript2_2_0: true,
       }
     },
     {
@@ -18507,6 +18515,7 @@ exports.tests = [
         duktape2_0: false,
         graalvm: true,
         jerryscript2_0: false,
+        jerryscript2_2_0: true,
       }
     },
     {
@@ -18536,6 +18545,7 @@ exports.tests = [
         duktape2_0: false,
         graalvm: true,
         jerryscript2_0: false,
+        jerryscript2_2_0: true,
       },
     },
     {
@@ -19897,6 +19907,7 @@ exports.tests = [
         duktape2_0: false,
         graalvm: true,
         jerryscript2_0: false,
+        jerryscript2_2_0: true,
       }
     },
     {
