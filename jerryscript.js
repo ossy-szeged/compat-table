@@ -68,7 +68,9 @@ function runTest(parents, test, sublevel) {
         }
         //console.log(evalcode);
 
-        var script = 'var evalcode = ' + JSON.stringify(evalcode) + ';\n' +
+        var helperscript = fs.readFileSync('createIterableObject.js').toString();
+        var script = helperscript +
+                     'var evalcode = ' + JSON.stringify(evalcode) + ';\n' +
                      'try {\n' +
                      '    var res = eval(evalcode);\n' +
                      '    if (res !== true && res !== 1) { throw new Error("failed: " + res); }\n' +
