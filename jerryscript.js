@@ -33,6 +33,7 @@ var jerryKey = (function () {
     throw new Error('Invalid JerryScript version');
 })();
 console.log('JerryScript result key is: test.res.' + jerryKey);
+// jerryKey = "jerryscript2_2_0" // uncomment this line to test pre 2.2
 
 // List of keys for inheriting results from previous versions.
 var jerryKeyList = (function () {
@@ -61,16 +62,26 @@ function runTest(parents, test, sublevel) {
         var src = test.exec.toString();
         var m = /^function\s*\w*\s*\(.*?\)\s*\{\s*\/\*([\s\S]*?)\*\/\s*\}$/m.exec(src);
         var evalcode;
-        if (m) {
-            evalcode = '(function test() {' + m[1] + '})();';
-        } else {
-            evalcode = '(' + src + ')()';
-        }
-        //console.log(evalcode);
 
         var helperscript = fs.readFileSync('createIterableObject.js').toString();
-        var script = helperscript +
-                     'var evalcode = ' + JSON.stringify(evalcode) + ';\n' +
+        var script = helperscript;
+        var processArgs = ['jerrytest.js'];
+
+        if (src.includes('asyncTestPassed')) {
+            var asyncTestHelperHead = fs.readFileSync('asyncTestPassedHead.js').toString();
+            var asyncTestHelperTail = fs.readFileSync('asyncTestPassedTail.js').toString();
+
+            script += asyncTestHelperHead + m[1] + asyncTestHelperTail
+
+            processArgs.unshift('--call-on-exit','onCloseAsyncCheck')
+        } else {
+            if (m) {
+                evalcode = '(function test() {' + m[1] + '})();';
+            } else {
+                evalcode = '(' + src + ')()';
+            }
+
+            script += 'var evalcode = ' + JSON.stringify(evalcode) + ';\n' +
                      'try {\n' +
                      '    var res = eval(evalcode);\n' +
                      '    if (res !== true && res !== 1) { throw new Error("failed: " + res); }\n' +
@@ -79,11 +90,12 @@ function runTest(parents, test, sublevel) {
                      '    print("[FAILURE]", e);\n' +
                      '    /*throw e;*/\n' +
                      '}\n';
+        }
 
-        fs.writeFileSync('jerrytest.js', script);
+        fs.writeFileSync(processArgs[processArgs.length - 1], script);
         var success = false;
         try {
-            var stdout = child_process.execFileSync(jerryCommand, [ 'jerrytest.js' ], {
+            var stdout = child_process.execFileSync(jerryCommand, processArgs, {
                 encoding: 'utf-8'
             });
             //console.log(stdout);
