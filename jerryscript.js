@@ -33,7 +33,7 @@ var jerryKey = (function () {
     throw new Error('Invalid JerryScript version');
 })();
 console.log('JerryScript result key is: test.res.' + jerryKey);
-// jerryKey = "jerryscript2_3_0" // uncomment this line to test pre 2.3.0
+jerryKey = "jerryscript2_3_0" // uncomment this line to test pre 2.3.0
 
 // List of keys for inheriting results from previous versions.
 var jerryKeyList = (function () {
