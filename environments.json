@@ -4174,6 +4174,19 @@
       "es2016plus"
     ]
   },
+  "jerryscript3_0_0": {
+    "full": "JerryScript 3.0.0",
+    "family": "JerryScript",
+    "short": "JrS 3.0.0",
+    "platformtype": "engine",
+    "release": "2021-06-30",
+    "obsolete": false,
+    "test_suites": [
+      "es5",
+      "es6",
+      "es2016plus"
+    ]
+  },
   "nashorn1_8": {
     "full": "Oracle Nashorn 1.8",
     "family": "Nashorn",
