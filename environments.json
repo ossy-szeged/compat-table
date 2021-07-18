@@ -4161,6 +4161,19 @@
       "es2016plus"
     ]
   },
+  "jerryscript2_3_5": {
+    "full": "JerryScript 2.3.5*",
+    "family": "JerryScript",
+    "short": "JrS 2.3.5*",
+    "platformtype": "engine",
+    "release": "2020-10-18",
+    "obsolete": true,
+    "test_suites": [
+      "es5",
+      "es6",
+      "es2016plus"
+    ]
+  },
   "jerryscript2_4_0": {
     "full": "JerryScript 2.4.0",
     "family": "JerryScript",
